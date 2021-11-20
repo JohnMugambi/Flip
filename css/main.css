@@ -1,0 +1,597 @@
+:root {
+  --white: rgb(252, 252, 252);
+  --background-gray: rgb(248, 248, 248);
+  --dark-gray: rgb(223, 223, 223);
+  --fields-gray: rgb(247, 247, 247);
+  --nav-gray: rgb(231, 231, 231);
+  --primary-color: #081845;
+  --secondary-color: #4ac7ee;
+  --alt-color: #f9c80e;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--background-gray);
+}
+header {
+  position: sticky;
+  top: 0;
+  display: block;
+  z-index: 10;
+  background-color: var(--white);
+}
+header nav {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--nav-gray);
+  width: 100%;
+  height: 9vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10vw;
+}
+nav div a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+nav div a p {
+  font-size: 2rem;
+}
+nav div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav div .mobile-nav-menu {
+  display: none;
+}
+.menu-icon {
+  font-size: 23px;
+}
+.search-box {
+  position: relative;
+  background: var(--background-gray);
+  height: 6vh;
+  min-width: 30vw;
+  border-radius: 50px;
+  padding: 0 3px;
+  border: 1px solid rgb(224, 224, 224);
+  margin: 0px 10px 0px 10px;
+}
+.search-box form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+.search-box .search-btn {
+  color: #e4e4e4;
+  float: right;
+  min-width: 35px;
+  height: 33px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-box .search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  margin-left: 20px;
+  color: black;
+  transition: 0.4s;
+  line-height: 30px;
+  font-size: 15px;
+  min-width: 60%;
+}
+.friends-icon-btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.main-section {
+  display: flex;
+}
+.main-section .newsfeed-section {
+  position: relative;
+  display: block;
+  flex-direction: column;
+  width: auto;
+  height: 100%;
+}
+.newsfeed-section #profile-posts {
+  display: block;
+  width: 100%;
+}
+.newsfeed-section #profile-notifications {
+  display: none;
+}
+.newsfeed-section #saved-posts {
+  display: none;
+}
+.main-section .column-side {
+  display: inline-block;
+  min-height: 91vh;
+  width: 25.33%;
+  min-width: 200px;
+}
+.main-section .column-friends {
+  display: inline-block;
+  min-height: 91vh;
+  width: 25.33%;
+  min-width: 200px;
+}
+.newsfeed-section,
+.friends-section,
+.side-nav {
+  padding: 12px 10px 0px 10px;
+}
+
+/* Sidenav section */
+.side-nav {
+  z-index: 11;
+  display: flex;
+  position: sticky;
+  top: 9vh;
+  height: 100%;
+  background-color: var(--white);
+  border-right: 1px solid var(--nav-gray);
+}
+.side-nav > div {
+  position: relative;
+  height: 82vh;
+  width: 100%;
+}
+div .nav-links ul {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 20px 0 0 0;
+  transform: translateY(-50%);
+}
+
+.nav-links ul li {
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  width: 150px;
+  padding: 7px;
+  list-style: none;
+  margin: 10px 0px 0px 2vw;
+  border-radius: 5px;
+  transition: ease-in-out 0.2s;
+}
+.nav-links ul li span {
+  margin-right: 5px;
+}
+.nav-links ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: var(--primary-color);
+  transition: ease-in-out 0.2s;
+}
+.nav-links ul li a:hover {
+  color: var(--secondary-color);
+}
+.side-nav .user-summary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  margin: 0px 0px 20px 3vw;
+}
+.user-summary img {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+}
+.user-summary .profile-name {
+  font-size: 1.3em;
+}
+.user-summary .profile-username {
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+.side-nav-more {
+  position: absolute;
+  bottom: 4vh;
+  left: 3.5vw;
+  right: 0;
+  margin: auto;
+}
+.side-nav-more .more-btn {
+  display: flex;
+  width: fit-content;
+  font-size: 20px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.side-nav-popup {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 5px;
+  min-height: 14vh;
+  margin: auto;
+  width: 90%;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+  background: var(--white);
+}
+
+.side-nav-popup div {
+  margin: 7px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+/* End of sidenav section */
+
+/* Newsfeed section */
+.newsfeed-section .post-card {
+  background-color: var(--white);
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  padding: 12px;
+  height: auto;
+}
+.newsfeed-section .user-post {
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  height: auto;
+}
+.section-intro-text {
+  margin-bottom: 12px;
+}
+/* post something */
+.user-post .post-item > p {
+  font-size: 1rem;
+  padding: 10px;
+}
+.post-item .post-feed-item {
+  border-top: 1px solid var(--fields-gray);
+  width: 100%;
+  padding: 12px;
+  display: flex;
+}
+div img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: var(--background-gray);
+  margin-right: 15px;
+  text-align: center;
+}
+.post-feed-item form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: var(--fields-gray);
+  padding: 10px;
+}
+.post-feed-item form > textarea {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  line-height: 2vh;
+  height: fit-content;
+  width: auto;
+  margin-bottom: 10px;
+  resize: vertical;
+  padding: 5px;
+}
+.post-feed-item form button {
+  position: relative;
+  right: 0;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.main-section form button {
+  border: none;
+  transition: ease-in-out 0.2s;
+  padding: 10px 15px;
+  background-color: var(--secondary-color);
+}
+.main-section form button:hover {
+  background: var(--alt-color);
+}
+.post-owner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0px;
+}
+.post-owner .post-user-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+.post-owner .post-additional-actions {
+  position: absolute;
+  right: 10px;
+}
+.post-user-details .post-action-summary {
+  display: flex;
+  position: absolute;
+  margin-top: -18px;
+  font-size: 0.7rem;
+  justify-content: center;
+  align-content: center;
+}
+.post-action-summary i {
+  margin: 2px 5px 0px 0px;
+
+  font-size: 12px;
+}
+.post-user-details .post-date {
+  font-size: 0.7em;
+}
+.post-body {
+  margin-bottom: 10px;
+}
+.post-body .post-text {
+  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+}
+/* Style the div for posted images here */
+
+/*  */
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px 0px 0px;
+}
+.post-actions > div {
+  display: flex;
+  margin: 0px 10px 10px 0px;
+}
+.post-actions div .post-action-share {
+  margin-left: 10px;
+}
+.post-actions span {
+  cursor: pointer;
+}
+.active-like {
+  color: rgb(218, 0, 0);
+}
+.comments-section {
+  width: 100%;
+  height: auto;
+}
+.posted-comments {
+  margin-bottom: 8px;
+}
+.post-a-comment {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+.post-a-comment form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fields-gray);
+  border-radius: 5px;
+  padding: 10px;
+}
+.post-a-comment form > textarea {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  line-height: 2vh;
+  height: fit-content;
+  width: auto;
+  margin-bottom: 10px;
+  resize: vertical;
+  padding: 5px;
+}
+.post-a-comment form button {
+  position: relative;
+  right: 0;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+/* Friends column */
+.friends-section-aside {
+  padding-top: 12px;
+  position: sticky;
+  top: 9vh;
+  height: 91vh;
+  overflow: scroll;
+}
+.friends-section-aside::-webkit-scrollbar {
+  display: none;
+}
+.friends-section-aside {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.friends-section {
+  margin: 12px 8px 10px 0px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  background-color: var(--white);
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+.friends-list ul {
+  padding-bottom: 10px;
+}
+.friends-list ul li {
+  list-style: none;
+  margin: 10px;
+}
+.friends-list ul li a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+ul li a .friend-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*----------------- Styling the Profile page -------------------*/
+.section-nav {
+  margin-bottom: 3vh;
+  position: sticky;
+  top: 9vh;
+  background: var(--background-gray);
+  z-index: 1;
+}
+.section-nav .page-section-nav {
+  display: block;
+  top: 9vh;
+}
+.section-nav .page-section-nav div {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  border-bottom: 1px solid var(--dark-gray);
+}
+.section-nav .page-section-nav div p {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+  transition: ease-in-out 0.2s;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.section-nav .page-section-nav div p:hover {
+  background-color: var(--alt-color);
+}
+/* .section-nav .page-section-nav div*/
+
+.active::after {
+  content: "";
+  height: 5px;
+  background: var(--secondary-color);
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 45px;
+  margin-top: 10px;
+}
+.menu-active {
+  left: 0% !important;
+}
+.friends-active {
+  right: 0 !important;
+}
+/* ------------------------------ */
+/* Mobile responsiveness */
+/* ----------------------------- */
+@media screen and (max-width: 1000px) {
+  .main-section .column-side,
+  .main-section .column-friends {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .nav-padding {
+    padding: 0 10vw;
+    margin: auto;
+  }
+  header nav {
+    padding: 0 5vw;
+  }
+  nav div .mobile-nav-menu {
+    cursor: pointer;
+    display: block;
+    margin-right: 20px;
+  }
+  nav div a img {
+    display: none;
+  }
+  .main-section .column-side {
+    display: block;
+    position: fixed;
+    transition: ease-in-out 0.2s;
+    left: -70%;
+    z-index: 10;
+    min-height: 91vh;
+    width: 45.33%;
+    min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-section .column-friends {
+    display: block;
+    position: fixed;
+    right: -100%;
+    z-index: 10;
+    min-height: 91vh;
+    width: 100%;
+    min-width: 200px;
+    transition: ease-in-out 0.2s;
+    background-color: var(--background-gray);
+  }
+  .friends-icon-btn {
+    display: flex;
+  }
+  .friends-section-aside {
+    padding: 8px 8px 0px 8px;
+  }
+}
+@media screen and (max-width: 500px) {
+  header nav {
+    padding: 0 4vw;
+  }
+  nav div .mobile-nav-menu {
+    cursor: pointer;
+    display: block;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  nav div a p {
+    font-size: 1.2rem;
+    margin-right: 5px;
+    display: none;
+  }
+  nav .search-box {
+    margin-right: 5px;
+  }
+}
